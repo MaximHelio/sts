@@ -1,0 +1,25 @@
+package aloha.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import aloha.domain.Board;
+
+
+@Service
+public class BoardServiceImpl implements BoardService {
+
+	private BoardMapper mapper;
+	
+	@Override
+	public List<Board> list() throws Exception {
+		return mapper.list();
+	}
+
+	@Override
+	public void insert(Board board) throws Exception {
+		mapper.insert(board);
+	}
+	
+}

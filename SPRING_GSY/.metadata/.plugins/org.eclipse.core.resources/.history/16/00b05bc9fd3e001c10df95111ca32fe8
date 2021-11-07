@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+ 
+
+ $(function() {
+	
+	var form = $("#board");
+	// 등록 버튼 클릭 이벤트
+	$("#btnInsert").on("click", () => {
+		form.submit();
+	});
+	
+	// 목록 버튼 클릭 이벤트
+	$("#btnList").on("click", () => {
+		location.href ="/board/list";
+	});
+});
