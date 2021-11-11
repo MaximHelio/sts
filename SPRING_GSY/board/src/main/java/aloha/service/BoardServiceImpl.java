@@ -24,5 +24,29 @@ public class BoardServiceImpl implements BoardService {
 	public void insert(Board board) throws Exception {
 		mapper.insert(board);
 	}
+
+	@Override
+	public Board read(Integer boardNo) throws Exception {
+		return mapper.read(boardNo);
+	}
+
+	@Override
+	public void update(Board board) throws Exception {
+		mapper.update(board);
+		
+	}
+
+	@Override
+	public void delete(Integer boardNo) throws Exception {
+		mapper.delete(boardNo);
+	}
+
+	@Override
+	public List<Board> list(String keyword) throws Exception {
+		keyword = ( keyword == null ? "" : keyword);
+
+		return mapper.search(keyword);
+	}
+	
 	
 }

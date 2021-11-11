@@ -6,16 +6,20 @@
 <body>
 	<h1>게시글 목록</h1>
 	
-	<a href="/board/insert">글쓰기</a>
+	<form action="/board/list" method="get">
+		<a href="/board/insert">글쓰기</a>
+		<input type="text" name="keyword" />
+		<input type="submit" value="검색" />
+	</form>
 	
 	<table border="1">
 		<thead>
 			<tr>
-				<th width="80">글번호</th>
-				<th width="320">제목</th>
-				<th width="100">작성자</th>
-				<th width="200">등록일자</th>
-				<th width="200">수정일자</th>
+				<th align="center" width="80">글번호</th>
+				<th align="left" width="320">제목</th>
+				<th align="center" width="100">작성자</th>
+				<th align="center" width="200">등록일자</th>
+				<th align="center" width="200">수정일자</th>
 			</tr>		
 		</thead>
 		<tbody>
@@ -27,8 +31,8 @@
 						th:text="${board.title}"></a>
 				</td>
 				<td th:text="${board.writer}"></td>
-				<td th:text="${board.regDate}"></td>
-				<td th:text="${board.updDate}"></td>
+				<td th:text="${ #dates.format(board.regDate, 'yyyy-MM-dd HH:mm:ss') }"></td>
+				<td th:text="${ #dates.format(board.updDate, 'yyyy-MM-dd HH:mm:ss') }"></td>
 			</tr>
 		</tbody>
 	</table>
